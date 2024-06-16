@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bid on {{ item.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bid on {{ item.name }}</h1>
+        <div class="item-details">
+            <p>Description: {{ item.description }}</p>
+            <p>Current Bid: ${{ item.current_bid }}</p>
+        </div>
+        <form method="post" action="" class="bid-form">
+            <label for="bid">Place Your Bid:</label>
+            <input type="number" id="bid" name="bid" required>
+            <button type="submit">Submit Bid</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">Back to Auction Items</a>
+    </div>
+</body>
+</html>

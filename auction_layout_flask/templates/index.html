@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Auction Items</h1>
+        <ul class="auction-list">
+            {% for item in items %}
+            <li class="auction-item">
+                <div class="item-info">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.description }}</p>
+                    <p>Current Bid: ${{ item.current_bid }}</p>
+                </div>
+                <div class="bid-link">
+                    <a href="{{ url_for('auction', item_id=item.id) }}">Place a Bid</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
